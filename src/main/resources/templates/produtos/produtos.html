@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head('Home')}"></head>
+<body>
+<div th:replace="~{base:: topo}"></div>
+    <div class="container mt-3">
+        <div th:replace="~{base :: titulo('Meus Produtos')}"></div>
+         <nav th:replace="~{base :: nav}">
+         </nav>
+
+        <div class="d-flex">
+            <a href="/produto/novo"><button class="btn btn-success my-2 mx-3" >Novo Produto</button></a>
+        </div>
+        <div class="card mb-3" th:each="produto: ${produtos}">
+
+            <div class="col-12 col-sm-4">
+                <img class="img-thumbnail" th:src="${produto.urlImagem}">
+            </div>
+            <div class="col-md-5 mb-1">Valor: <span th:text="${#numbers.formatCurrency(produto.valor)}"></span></div>
+            <div class="card-header alert-dark"  th:text="${produto.nome}"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>

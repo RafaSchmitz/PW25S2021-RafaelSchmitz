@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<head th:replace="~{base :: head('Home')}"></head>
+<body>
+<div th:replace="~{base:: topo}"></div>
+
+    <div class="container mt-3">
+        <div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
+        <nav th:replace="~{base :: nav}"></nav>
+
+        <div class="card mb-3" th:each="pedido: ${pedidos}">
+            <th:block th:switch="${pedido.status.name()}">
+                <div class="card-header alert-warning" th:case="'AGUARDANDO'" th:text="${pedido.nome}">Nome do produto</div>
+                <div class="card-header alert-success" th:case="'APROVADO'" th:text="${pedido.nome}">Nome do produto</div>
+                <div class="card-header alert-dark" th:case="'ENTREGUE'" th:text="${pedido.nome}">Nome do produto</div>
+            </th:block>
+            <div class="card-body row">
+                <div class="col-12 col-sm-8 mb-3">
+                    <div class="row mb-1">
+                        <div class="col-md-5 mb-1">Valor: <span th:text="${#numbers.formatCurrency(pedido.valor)}">R$ 200,00</span></div>
+                        <div class="col-md-7">Data de entrega:
+                            <span th:text="${#dates.format(pedido.dataEntrega, 'dd/MM/yyyy')}">20/20/2010</span>
+                        </div>
+                    </div>
+                    <div class="mb-1">URL: <input class="form-control" th:value="${pedido.urlItem}" value="http://amazon.com/nome-do-produto"/></div>
+                    <div class="mb-1">Descrição: <textarea class="form-control" th:text="${pedido.descricao}">qualquer descrição sobre o pedido</textarea></div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <img class="img-thumbnail" th:src="${pedido.urlImagem}" src="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

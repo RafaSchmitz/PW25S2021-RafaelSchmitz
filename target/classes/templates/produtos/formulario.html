@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--suppress XmlInvalidId -->
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head('Home')}"></head>
+<body>
+
+<div th:replace="~{base:: topo}"></div>
+
+<div class="container mt-3">
+  <div th:replace="~{base :: titulo('Novo Produto')}"></div>
+
+  <div class="row">
+    <form th:action="@{/produto}" method="post"
+          th:object="${produto}">
+      <div class="row">
+        <div class="form-group">
+          <label for="id">Código</label>
+          <input type="text" class="form-control"
+                 th:field="*{id}" readonly/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" class="form-control"
+                 th:field="*{nome}"/>
+          <span th:if="${#fields.hasErrors('nome')}"
+                th:errors="*{nome}"
+                class="text-danger"
+          ></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="valor">Valor</label>
+          <input type="text" class="form-control" th:field="*{valor}" />
+          <span th:if=" ${#fields.hasErrors('valor')}" th:errors="*{valor}" class="text-danger"></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="nome">urlImagem</label>
+          <input type="text" class="form-control"
+                 th:field="*{urlImagem}"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="nome">Pais</label>
+          <input type="text" class="form-control"
+                 th:field="*{paisOrigem}"/>
+          <span
+                class="text-danger"
+          ></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-primary" type="submit">Salvar
+        </button>
+      </div>
+    </form>
+  </div> <!-- FIM div row -->
+</div>
+</body>
+</html>

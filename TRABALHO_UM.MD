@@ -1,0 +1,7 @@
+- 1 – Adicionar no pacote model do projeto uma classe Produtos (id, nome, valor,  urlImagem e paisOrigem)
+- 2 – Criar repository para consultar dados no banco e um controller específico para as requisições externas
+- 3 – Adicionar 3 produtos no import.sql
+- 4 – Adicionar no menu navegação um atalho para a tela “Produtos Disponíveis”
+- 5 - Criar uma tela que liste os produtos cadastrados
+- 6 – Criar uma tela com formulário de novo produto
+- 7 – Subir no seu repositório git e enviar link via e-mail até 23:59 12/11

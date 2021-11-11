@@ -1,0 +1,5 @@
+INSERT INTO pedido (data_entrega, descricao, nome, url_imagem, url_item, valor, status) VALUES ('2021-12-25', 'uma descrição qualquer para esse pedido', 'Mac Book Pro Charger','https://m.media-amazon.com/images/I/51H7tRV8bxL._AC_SL1498_.jpg', 'https://amzn.to/3lXhoXt', 200, 'APROVADO')
+INSERT INTO pedido (data_entrega, descricao, nome, url_imagem, url_item, valor, status) VALUES ('2022-01-10', 'olá, gostaria de receber esse fone até fevereiro, pago até 20% no valor', 'Sony WF-1000XM4 ','https://m.media-amazon.com/images/I/4155dgBLwPS._AC_SL1200_.jpg', 'https://amzn.to/2ZahEtK', 1873.29, 'ENTREGUE')
+
+INSERT INTO produtos(nome, valor, url_Imagem, pais_Origem) VALUES('Produto 01', '2.00', 'https://m.media-amazon.com/images/I/51H7tRV8bxL._AC_SL1498_.jpg', 'Estados Unidos')
+INSERT INTO produtos(nome, valor, url_Imagem, pais_Origem) VALUES('Produto 02', '2.00', 'https://m.media-amazon.com/images/I/4155dgBLwPS._AC_SL1200_.jpg', 'Estados Unidos')
