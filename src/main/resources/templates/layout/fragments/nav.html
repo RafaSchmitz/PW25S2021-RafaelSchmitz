@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div class="container" th:fragment="nav">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../"> <i class="ion-cube"></i> Tabalho Final</a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active" th:classappend="${#httpServletRequest.getRequestURI().startsWith('../') ? 'active':''}" >
+                <a th:href="@{/}">Home</a>
+            </li>
+            <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/catalog') ? 'active':''}" >
+                <a  th:href="@{/catalog/}">Livros</a>
+            </li>
+            <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/login') ? 'active':''}" >
+                <a  th:href="@{/login}">Login</a>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div><!--/.container-fluid -->
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout.html}">
+
+  <head>
+  </head>
+
+  <body>
+  <section layout:fragment="conteudo">
+
+    <header th:replace="layout/fragments/header :: header">
+
+    </header>
+
+    <br><br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 align-center">
+          <a href="./blog/">
+            <img src="/img/tiles/blog.jpg" alt="Blog" class="image"/>
+          </a>
+          <br><br>
+
+          <a >O corpo humano</a>
+        </div>
+        <div class="col-sm-3 align-center">
+          <a >
+            <img src="/img/tiles/video-apple.jpg" alt="New devices" class="image"/>
+          </a>
+          <br><br>
+
+          <a data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">Novos Livros</a>
+        </div>
+        <div class="col-sm-3 align-center">
+          <a>
+            <img src="/img/tiles/video-dell.jpg" alt="Del XPS" class="image"/>
+          </a>
+          <br><br>
+
+          <a data-description="Best of dell's laptops that you can consider buying in 2016. 4 Laptops are featured in the video and all of them has equal importance and there is no order that #1 is better than #2">Planeta Terra</a>
+        </div>
+        <div class="col-sm-3 align-center">
+          <a href="./blog/">
+            <img src="/img/tiles/gallery.jpg" alt="Gallery" class="image"/>
+          </a>
+          <br><br>
+          
+          <a>Ciência</a>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+    <footer >
+
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="Modal-ForgotPassword" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="modal-title">Forgot Your Password?</h4>
+                  <br>
+
+                  <form class="join" action="index.php" method="post">
+                    <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
+                    <br>
+
+                    <button type="submit" class="btn btn-primary btn-sm">Continue</button>
+                    <a href="#Sign-In" data-action="Sign-In">Back ></a>
+                  </form>
+                </div>
+                <div class="col-sm-6">
+                  <br><br>
+                  <p>
+                    Enter the e-mail address associated with your account. Click submit to have your password e-mailed to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <h4 class="modal-title">Title</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery-latest.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+<!--    <script src="../js/produtos.js"></script>-->
+    <script src="/js/core.js"></script>
+    <script src="/js/carousel.js"></script>
+    <script src="/js/carousel-recommendation.js"></script>
+
+
+  </section>
+
+
+  </body>
+</html>

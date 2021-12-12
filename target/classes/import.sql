@@ -1,5 +1,30 @@
-INSERT INTO pedido (data_entrega, descricao, nome, url_imagem, url_item, valor, status) VALUES ('2021-12-25', 'uma descrição qualquer para esse pedido', 'Mac Book Pro Charger','https://m.media-amazon.com/images/I/51H7tRV8bxL._AC_SL1498_.jpg', 'https://amzn.to/3lXhoXt', 200, 'APROVADO')
-INSERT INTO pedido (data_entrega, descricao, nome, url_imagem, url_item, valor, status) VALUES ('2022-01-10', 'olá, gostaria de receber esse fone até fevereiro, pago até 20% no valor', 'Sony WF-1000XM4 ','https://m.media-amazon.com/images/I/4155dgBLwPS._AC_SL1200_.jpg', 'https://amzn.to/2ZahEtK', 1873.29, 'ENTREGUE')
+INSERT INTO permissao (nome) values('ROLE_ADMIN');
+INSERT INTO permissao (nome) values('ROLE_USER');
 
-INSERT INTO produtos(nome, valor, url_Imagem, pais_Origem) VALUES('Produto 01', '2.00', 'https://m.media-amazon.com/images/I/51H7tRV8bxL._AC_SL1498_.jpg', 'Estados Unidos')
-INSERT INTO produtos(nome, valor, url_Imagem, pais_Origem) VALUES('Produto 02', '2.00', 'https://m.media-amazon.com/images/I/4155dgBLwPS._AC_SL1200_.jpg', 'Estados Unidos')
+INSERT INTO usuario(nome, cpf, telefone, email,  username, password) VALUES ('Administrador', '06354809992','46999858352', 'rafasch@live.com', 'rafasch@live.com', '$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');
+INSERT INTO usuario(nome, cpf, telefone, email,  username, password) VALUES ('TESTE', '06354809993','46999858352', 'rafasch@live.com', 'rafaschi@live.com', '$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');
+
+
+INSERT INTO permissao (nome) values('ROLE_ADMIN');
+INSERT INTO permissao (nome) values('ROLE_USER');
+
+INSERT INTO usuario_permissoes(usuario_id, permissoes_id) VALUES (1, 1);
+INSERT INTO usuario_permissoes(usuario_id, permissoes_id) VALUES (1, 2);
+INSERT INTO usuario_permissoes(usuario_id, permissoes_id) VALUES (2, 2);
+
+insert into autor(nome, nacionalidade, email) values('Tiringa', 'Brasileiro', 'autor@hotmail.com');
+insert into autor(nome, nacionalidade, email) values('Galo Cego', 'Brasileiro', 'autor2@hotmail.com');
+insert into autor(nome, nacionalidade, email) values('Hulk Magrelo', 'Brasileiro', 'autor3@hotmail.com');
+
+
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 01', 123, 'editora 01', '../img/products/51n3T2SNLGL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 199.0, 1);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 02', 1234, 'editora 01', '../img/products/51q9FRA9gjL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 209.99, 1);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 03', 12345, 'editora 01', '../img/products/51q9FRA9gjL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 299.99, 1);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 04', 123456, 'editora 01', '../img/products/51q9FRA9gjL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 449.99, 2);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 05', 321, 'editora 01', '../img/products/51q9FRA9gjL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 399.99, 2);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 06', 3214, 'editora 01', '../img/products/51q9FRA9gjL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 199.0, 2);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 07', 32145, 'editora 01', '../img/products/51q9FRA9gjL._SY344_BO1,204,203,200_QL70_ML2_.jpg', 199.0, 3);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 07', 321456, 'editora 01', '../img/products/519LeZDGJNS._SY344_BO1,204,203,200_QL70_ML2_.jpg', 199.0, 3);
+insert into livro (titulo, isbn, editora, img, valor, autor_id) values ('Livro 09', 456789, 'editora 01', '../img/products/capa-ampliada-9788575224458.jpg', 199.0, 3);
+
+

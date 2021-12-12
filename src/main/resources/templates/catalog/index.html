@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout.html}" xmlns:display="http://www.w3.org/1999/xhtml">
+  <head>
+
+  </head>
+
+<body>
+<section layout:fragment="conteudo">
+
+    <hr class="offset-lg">
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Filter -->
+        <div class="col-sm-3 filter">
+          <div class="item">
+              <div class="title">
+                  <a th:href="@{/catalog/}"> <i class="ion-ios-trash-outline"></i>Limpar</a>
+                  <h1 class="h4">Filtrar por Autor</h1>
+              </div>
+
+              <div class="controls">
+                  <div class="checkbox-group" data-status="inactive" th:each="autor : ${autores}">
+                      <a th:href="@{/catalog/{id}(id=${autor.id})}" th:text="${autor.nome}"></a>
+                  </div>
+
+              </div>
+          </div>
+
+        </div>
+        <!-- /// -->
+
+        <!-- Products -->
+
+        <div class="col-sm-9 products">
+            <form>
+
+                <div class="cart" data-toggle="inactive">
+                    <div class="label">
+                        <i class="ion-bag"></i> 7
+                    </div>
+
+                    <div class="overlay"></div>
+
+                    <div class="window">
+                        <div class="title">
+                            <button type="button" class="close"><i class="ion-android-close"></i></button>
+                            <h1 class="h3 info">Shopping cart</h1>
+                        </div>
+
+                        <div class="content" id="Cart">
+                            <table  class="table table-striped table-responsive-md">
+                                <thead>
+                                <tr>
+                                    <th>Livro</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor</th>
+                                    <th>Valor Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div >
+
+                        <div class="checkout container-fluid"  >
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6">
+                                    <a class="btn btn-primary" type="submit"> Finalizar Compra</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 product" th:each="livro : ${livros}">
+
+                   <input  class="ProductId" th:name="ProductId" th:value="${livro.id}" th:data-id="${livro.id}" hidden></input>
+                  <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+                  <a href="./"><img th:id="'img_'+ ${livro.id}" th:data-img="${livro.img}" th:src="${livro.img}" class="ProductImg" /></a>
+
+                   <div class="content">
+                      <h1 class="h4 ProductName" th:data-nome="${livro.titulo}" th:id="'nome_'+ ${livro.id}" th:text="${livro.titulo}"></h1>
+                      <p class="price ProductValor" th:id="'valor_'+ ${livro.id}" th:text="'R$ ' + ${#numbers.formatDecimal(livro.valor,3,'POINT',2,'COMMA')}"
+                         th:data-valor="${livro.valor}" ></p>
+
+                      <!--//Categoria-->
+
+                      <label th:text="${livro.getAutor.nome}" class="cat"></label>
+
+                      <div class="row" >
+                              <div class="left">
+                                  <label for="quantidade">Quantidade: </label>
+                              </div>
+                              <div class="right">
+                                  <input type="number" min="1" max="100" step="1" class="qtd" placeholder="1"
+                                         th:value="1"/>
+                              </div>
+
+                      </div>
+
+
+
+                      <a class="btn btn-link"> Ver mais</a>
+                      <button class="btn btn-primary btn-rounded btn-sm" type="button"  name="addCart"> <i class="ion-bag"></i> Add to cart</button>
+                  </div>
+              </div>
+
+            </form>
+          </div>
+
+          <nav>
+              <ul class="pagination" th:if="${livros.totalPages > 0}">
+                  <li class="page-item"
+                      th:classappend="${pageNumber==livros.number + 1} ? active"
+                      th:each="pageNumber: ${pageNumbers}">
+                      <a class="page-link"
+                         th:href="@{/catalog(size=${livros.size}, page=${pageNumber})}"
+                         th:text="${pageNumber}"></a>
+                  </li>
+              </ul>
+            </ul>
+          </nav>
+        </div>
+        <!-- /// -->
+      </div>
+
+    </div>
+    <br><br>
+
+    <!-- Modal -->
+    <div class="modal fade" id="Modal-SignIn" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="modal-title">Join Free</h4>
+                  <br>
+
+                  <form class="join" action="index.php" method="post">
+                    <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
+                    <br>
+                    <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
+                    <br>
+
+                    <button type="submit" class="btn btn-primary btn-sm">Join</button>
+                    <a href="#">Terms ></a>
+
+                    <br><br>
+                    <p>
+                      By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
+                    </p>
+                  </form>
+                </div>
+                <div class="col-sm-6">
+                  <h4 class="modal-title">Sign In</h4>
+                  <br>
+
+                  <form class="signin" action="index.php" method="post">
+                    <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
+                    <br>
+                    <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
+                    <br>
+
+                    <button type="submit" class="btn btn-primary btn-sm">Sign In</button>
+                    <a href="#forgin-password" data-action="Forgot-Password">Password recovery ></a>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Modal-ForgotPassword" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="modal-title">Forgot Your Password?</h4>
+                  <br>
+
+                  <form class="join" action="index.php" method="post">
+                    <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
+                    <br>
+
+                    <button type="submit" class="btn btn-primary btn-sm">Continue</button>
+                    <a href="#Sign-In" data-action="Sign-In">Back ></a>
+                  </form>
+                </div>
+                <div class="col-sm-6">
+                  <br><br>
+                  <p>
+                    Enter the e-mail address associated with your account. Click submit to have your password e-mailed to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <h4 class="modal-title">Title</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <script src="../js/jquery-latest.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed-->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/core.js"></script>
+<!--    <script src="../js/produtos.js"></script>-->
+    <script src="../js/carrinho.js"></script>
+    <script src="../js/catalog.js"></script>
+
+    <script type="text/javascript" src="../js/jquery-ui-1.11.4.js"></script>
+    <script type="text/javascript" src="../js/jquery.ui.touch-punch.js"></script>
+
+</section>
+  </body>
+</html>
